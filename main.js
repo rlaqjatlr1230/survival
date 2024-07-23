@@ -24,7 +24,12 @@ function preload() {
     this.load.image('background', 'assets/background.png');
 }
 
-function create() {
+function create() {    // 배경 이미지를 화면 전체에 맞게 스케일링
+    this.background = this.add.image(0, 0, 'background');
+    this.background.setOrigin(0, 0); // 이미지의 기준점을 (0,0)으로 설정
+    this.background.setDisplaySize(config.width, config.height); // 화면 크기에 맞게 조정
+
+    // 나머지 게임 오브젝트들
     this.add.image(400, 300, 'background');
     
     this.player = this.physics.add.sprite(400, 300, 'player');
